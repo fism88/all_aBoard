@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <div class="list-group">
+    <div class="list-group-item">
+    </div>
+    {{#each model as |board-game|}}
+      <div class="list-group-item board-game-link">
+        {{ game.name }}
+        <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      </div>
+    {{/each}}
+  </div>
+</div>
+

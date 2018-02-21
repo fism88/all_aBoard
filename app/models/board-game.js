@@ -5,5 +5,5 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   rating: DS.attr('number'),
   numPlayers: DS.attr('string'),
-  tags: DS.hasmany('tag')
+  tags: DS.hasMany('tag')
 });

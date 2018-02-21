@@ -1,7 +1,7 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  beforeModel () {
-    this.transitionTo('board-games');
-  }
-})
+  model () {
+    return this.store.findAll('board-game');
+  },
+});
