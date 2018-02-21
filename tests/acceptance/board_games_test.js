@@ -9,7 +9,7 @@ test('List board games', function (assert) {
   andThen(function () {
     assert.equal(find('.board-game-link').length, 2, 'All board game links are rendered');
 
-    assert.equal(find('.board-game-link:contains("Uno")').length, 1, 'First board game link contains its name');
+    assert.equal(find('.board-game-link:contains("Pandemic")').length, 1, 'First board game link contains its name');
     assert.equal(find('.board-game-link:contains("Ticket to Ride")').length, 1, 'Second board game link contains its name');
   });
 });
