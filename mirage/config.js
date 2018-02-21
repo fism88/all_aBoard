@@ -29,7 +29,20 @@ export default function() {
           description: 'Card game based on matching value or color of cards',
           rating: 3,
           numPlayers: '2+',
-          tags: []
+          tags: [
+            {
+              id: 1,
+              attributes: {
+                'name': 'Cards'
+              }
+            },
+            {
+              id: 2,
+              attributes: {
+                'name': 'Quick'
+              }
+            }
+          ]
         }
       }
     ]
