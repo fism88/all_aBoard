@@ -1,10 +1,10 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'all-aboard/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | board_games');
+moduleForAcceptance('Acceptance | board-games');
 
 test('List board games', function (assert) {
-  visit('/board_games');
+  visit('/board-games');
 
   andThen(function () {
     assert.equal(find('.board-game-link').length, 2, 'All board game links are rendered');

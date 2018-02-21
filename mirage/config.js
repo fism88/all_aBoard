@@ -1,50 +1,61 @@
 export default function() {
-
-  // These comments are here to help you get started. Feel free to delete them.
-
-  /*
-    Config (with defaults).
-
-    Note: these only affect routes defined *after* them!
-  */
-
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  /*
-    Shorthand cheatsheet:
-
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
-
-    http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
-  */
   this.get('/board-games', () => {
-    return [
-      {
-        id: 1,
-        attributes: {
-          name: 'Uno',
-          description: 'Card game based on matching value or color of cards',
-          rating: 3,
-          numPlayers: '2+',
-          tags: [
-            {
-              id: 1,
-              attributes: {
-                'name': 'Cards'
+    //return schema.board_games.all();
+    return {
+      'data': [
+        {
+          id: 1,
+          type: "board-games",
+          attributes: {
+            name: 'Pandemic',
+            description: '',
+            rating: 3,
+            "num-players": '2+',
+            tags: [
+              {
+                id: 1,
+                type: "tags",
+                attributes: {
+                  name: 'Strategy'
+                }
+              },
+              {
+                id: 2,
+                type: "tags",
+                attributes: {
+                  name: 'Board'
+                }
               }
-            },
-            {
-              id: 2,
-              attributes: {
-                'name': 'Quick'
+            ]
+          }
+        },
+        {
+          id: 2,
+          type: "board-games",
+          attributes: {
+            name: 'Ticket to Ride',
+            description: '',
+            rating: 5,
+            "num-players": '2+',
+            tags: [
+              {
+                id: 2,
+                type: "tags",
+                attributes: {
+                  name: 'Board'
+                }
+              },
+              {
+                id: 1,
+                type: "tags",
+                attributes: {
+                  name: 'Strategy'
+                }
               }
-            }
-          ]
+            ]
+          }
         }
-      }
-    ]
+      ]
+    };
   });
 }
