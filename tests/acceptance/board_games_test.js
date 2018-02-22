@@ -4,6 +4,8 @@ import moduleForAcceptance from 'all-aboard/tests/helpers/module-for-acceptance'
 moduleForAcceptance('Acceptance | board-games');
 
 test('List board games', function (assert) {
+  server.loadFixtures('board-games');
+
   visit('/board-games');
 
   andThen(function () {
