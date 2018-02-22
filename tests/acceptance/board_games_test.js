@@ -27,18 +27,32 @@ test('View board game details', function (assert) {
   click('.board-game-link:first-of-type');
 
   andThen(function () {
+    assert.equal(currentURL(), '/board-games/1');
     assert.equal(find('.board-game-panel').length, 1, 'Board Game panel loads');
+    assert.equal(find('.board-game-panel #board-game-heading').length, 1, 'Board game heading is shown');
     assert.equal(find('.board-game-panel #board-game-description').length, 1, 'Board game description is shown');
-    assert.equal(find('.board-game-panel #board-game-rating').length, 1, 'Board game description is shown');
-    assert.equal(find('.board-game-panel #board-game-num-players').length, 1, 'Board game description is shown');
-    assert.equal(find('.board-game-panel #board-game-tags').length, 1, 'Board game description is shown');
+    assert.equal(find('.board-game-panel #board-game-rating').length, 1, 'Board game rating is shown');
+    assert.equal(find('.board-game-panel #board-game-num-players').length, 1, 'Board game number of players is shown');
+    assert.equal(find('.board-game-panel #board-game-tags').length, 1, 'Board game tags section is shown');
   });
 });
 
 test('Visit specific board game', function (assert) {
   server.loadFixtures('board-games');
+
+  visit('/board-games/1');
+
+  andThen(function () {
+    assert.equal(find('.board-game-panel').length, 1, 'Board Game panel loads');
+    assert.equal(find('.board-game-panel #board-game-heading:contains("Pandemic")').length, 1, 'Board game heading contains name');
+    assert.equal(find('.board-game-panel #board-game-description').length, 1, 'Board game description is shown');
+    assert.equal(find('.board-game-panel #board-game-rating').length, 1, 'Board game rating is shown');
+    assert.equal(find('.board-game-panel #board-game-num-players').length, 1, 'Board game number of players is shown');
+    assert.equal(find('.board-game-panel #board-game-tags').length, 1, 'Board game tags section is shown');
+  });
 });
 
+/*
 test('Create a board game', function (assert) {
   server.loadFixtures();
 
@@ -53,3 +67,4 @@ test('Edit a board game', function (assert) {
 test('Delete a board game', function (assert) {
   server.loadFixtures();
 });
+*/
