@@ -3,11 +3,14 @@
     <div class="list-group-item">
     </div>
     {{#each model as |boardGame|}}
-      <div class="list-group-item board-game-link">
+      {{#link-to "board-games.board-game" boardGame class="list-group-item board-game-link"}}
         {{ boardGame.name }}
         <span class="pointer glyphicon glyphicon-chevron-right"></span>
-      </div>
+      {{/link-to}}
     {{/each}}
   </div>
+</div>
+<div class="col-md-8">
+  {{ outlet }}
 </div>
 

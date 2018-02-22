@@ -7,7 +7,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('board-games');
+  this.route('board-games', function () {
+    this.route('board-game', { path: ':id' });
+  });
 });
 
 export default Router;
