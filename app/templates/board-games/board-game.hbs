@@ -1,5 +1,19 @@
 <div class="panel panel-default board-game-panel">
   <div class="panel-body">
-    <h4 class="panel-title board-game-description-header pull-left">Description</h4>
+    <h4 class="panel-title  pull-left page-header" id="board-game-heading">{{ model.name }}</h4>
+    <div class="clearfix"></div>
+    <br/>
+    {{#if isEditing}}
+      <div class="form-group">
+        <strong>Description:</strong> {{textarea class="form-control" id="board-game-description" value=model.description}}
+      </div>
+    {{else}}
+      <div id="board-game-description"><strong>Description:</strong> {{model.description}}</div>
+      <div id="board-game-rating"><strong>Rating:</strong> {{ model.rating }}</div>
+      <div id="board-game-num-players"><strong>Number of Players:</strong> {{ model.numPlayers }}</div>
+      <div id="board-game-tags">
+        <strong>Tags: </strong>
+      </div>
+    {{/if}}
   </div>
 </div>

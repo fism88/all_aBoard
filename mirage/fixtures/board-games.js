@@ -1,7 +1,7 @@
 export default [
   {
     name: 'Pandemic',
-    description: '',
+    description: 'Work with your team to cure diseases before they spread uncontrollably.',
     rating: 3,
     "num-players": '2+',
     tags: [
@@ -23,7 +23,7 @@ export default [
   },
   {
     name: 'Ticket to Ride',
-    description: '',
+    description: 'Compete against others to build out train routes for points.',
     rating: 5,
     "num-players": '2+',
     tags: [
