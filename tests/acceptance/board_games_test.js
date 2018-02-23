@@ -49,6 +49,8 @@ test('Visit specific board game', function (assert) {
     assert.equal(find('.board-game-panel #board-game-rating').length, 1, 'Board game rating is shown');
     assert.equal(find('.board-game-panel #board-game-num-players').length, 1, 'Board game number of players is shown');
     assert.equal(find('.board-game-panel #board-game-tags').length, 1, 'Board game tags section is shown');
+
+    assert.equal(find('.board-game-panel .tag-button').length, 2, 'Board game has tags listed');
   });
 });
 
