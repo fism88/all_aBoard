@@ -15,7 +15,7 @@
         <span>
           <strong>Tags: </strong>
           {{#each model.tags as |tag|}}
-            <button class="tag-button btn">{{ tag.name }}</button>
+            <button class="tag-button btn" {{action "visitTag" tag}}>{{ tag.name }}</button>
           {{/each}}
         </span>
       </div>

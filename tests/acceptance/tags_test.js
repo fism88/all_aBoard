@@ -19,7 +19,6 @@ test('List tags', function (assert) {
   });
 });
 
-/*
 test('Visit tag from board game', function (assert) {
   server.loadFixtures('board-games', 'tags');
 
@@ -34,7 +33,6 @@ test('Visit tag from board game', function (assert) {
     assert.equal(find('.tag-panel .board-game-link').length, 2, 'Links to board games with tag are shown');
   });
 });
-*/
 
 test('View tag details', function (assert) {
   server.loadFixtures('board-games', 'tags');
