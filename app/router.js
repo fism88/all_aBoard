@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('board-games', function () {
     this.route('board-game', { path: ':id' });
   });
+
+  this.route('tags', function () {
+    this.route('tag', { path: ':id' });
+  });
 });
 
 export default Router;

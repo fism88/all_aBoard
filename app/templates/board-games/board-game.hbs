@@ -12,7 +12,13 @@
       <div id="board-game-rating"><strong>Rating:</strong> {{ model.rating }}</div>
       <div id="board-game-num-players"><strong>Number of Players:</strong> {{ model.numPlayers }}</div>
       <div id="board-game-tags">
-        <strong>Tags: </strong>
+        <span>
+          <strong>Tags: </strong>
+          {{#each model.tags as |tag|}}
+            {{tag}}
+            <button class="tag-button btn">{{ tag.name }}</button>
+          {{/each}}
+        </span>
       </div>
     {{/if}}
   </div>
