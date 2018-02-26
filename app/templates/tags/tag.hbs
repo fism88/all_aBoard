@@ -1,0 +1,19 @@
+<div class="panel panel-default tag-panel">
+  <div class="panel-body">
+    <h4 class="panel-title pull-left page-header" id="tag-heading">{{ model.name }}</h4>
+    <div class="clearfix"></div>
+    <br/>
+    <div id="tag-board-games">
+      <span>
+        <strong>Board Games: </strong>
+        {{#each model.boardGames as |boardGame|}}
+          <div class="board-game-link">
+            {{#link-to "board-games.board-game" boardGame}}
+              {{ boardGame.name }}
+            {{/link-to}}
+          </div>
+        {{/each}}
+      </span>
+    </div>
+  </div>
+</div>
