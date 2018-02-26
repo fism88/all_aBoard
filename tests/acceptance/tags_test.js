@@ -35,3 +35,18 @@ test('Visit tag from board game', function (assert) {
   });
 });
 */
+
+test('View tag details', function (assert) {
+  server.loadFixtures('board-games', 'tags');
+
+  visit('/tags');
+  click('.tag-link:first-of-type');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/tags/1');
+    assert.equal(find('.tag-panel').length, 1, 'Tag panel loads');
+    assert.equal(find('.tag-panel #tag-heading').length, 1, 'Tag heading is shown');
+    assert.equal(find('.tag-panel #tag-board-games').length, 1, 'Tag board games section is shown');
+    assert.equal(find('.tag-panel .board-game-link').length, 2, 'Links to board games with tag are shown');
+  });
+});
