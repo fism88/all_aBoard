@@ -8,7 +8,7 @@ moduleForAcceptance('Acceptance | board-games', {
 });
 
 test('List board games', function (assert) {
-  server.loadFixtures('board-games');
+  server.loadFixtures('board-games', 'tags');
 
   visit('/board-games');
 
@@ -21,7 +21,7 @@ test('List board games', function (assert) {
 });
 
 test('View board game details', function (assert) {
-  server.loadFixtures('board-games');
+  server.loadFixtures('board-games', 'tags');
 
   visit('/board-games');
   click('.board-game-link:first-of-type');
@@ -38,7 +38,7 @@ test('View board game details', function (assert) {
 });
 
 test('Visit specific board game', function (assert) {
-  server.loadFixtures('board-games');
+  server.loadFixtures('board-games', 'tags');
 
   visit('/board-games/1');
 

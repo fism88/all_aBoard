@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <div class="list-group">
+    <div class="list-group-item">
+      New Tag
+    </div>
+    {{#each model as |tag|}}
+      {{#link-to "tags.tag" tag class="list-group-item tag-link"}}
+        {{ tag.name }}
+        <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>

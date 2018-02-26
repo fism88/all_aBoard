@@ -7,7 +7,6 @@ moduleForAcceptance('Acceptance | tags', {
   }
 });
 
-/*
 test('List tags', function (assert) {
   server.loadFixtures('board-games', 'tags');
 
@@ -18,6 +17,7 @@ test('List tags', function (assert) {
   });
 });
 
+/*
 test('Visit tag from board game', function (assert) {
   server.loadFixtures('board-games', 'tags');
 
