@@ -14,6 +14,8 @@ test('List tags', function (assert) {
 
   andThen(function () {
     assert.equal(find('.tag-link').length, 2, 'All tag links are rendered');
+    assert.equal(find('.tag-link:contains("Strategy")').length, 1, 'First tag link contains its name');
+    assert.equal(find('.tag-link:contains("Board")').length, 1, 'Second tag link contains its name');
   });
 });
 
