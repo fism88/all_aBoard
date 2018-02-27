@@ -9,7 +9,9 @@
       </div>
     {{else}}
       <div id="board-game-description"><strong>Description:</strong> {{model.description}}</div>
-      <div id="board-game-rating"><strong>Rating:</strong> {{ model.rating }}</div>
+      <div id="board-game-rating">
+        <strong>Rating:</strong> {{ star-rating rating=model.rating item=model }}
+      </div>
       <div id="board-game-num-players"><strong>Number of Players:</strong> {{ model.numPlayers }}</div>
       <div id="board-game-tags">
         <span>
