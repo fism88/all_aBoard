@@ -54,14 +54,27 @@ test('Visit specific board game', function (assert) {
   });
 });
 
-/*
 test('Create a board game', function (assert) {
   server.loadFixtures();
 
   visit('/board-games');
   click('#new-board-game-button');
+  assert.equal(currentURL(), '/board-games/new');
+
+  fillIn('#new-board-game-name', 'Dixit');
+  fillIn('#new-board-game-desc', 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description');
+  click('.rating-panel .star-rating:nth-child(4)');
+  fillIn('#newboard-game-num-players', '3+');
+  fillIn('board-game-tags', 'Strategy, Board');
+  click('#create-board-game-button');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/board-games');
+    assert.equal(find('.board-game-link:contains("Dixit")').length, 1, 'New board game was created and shows up in list');
+  });
 });
 
+/*
 test('Edit a board game', function (assert) {
   server.loadFixtures();
 });

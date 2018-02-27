@@ -48,3 +48,12 @@ test('View tag details', function (assert) {
     assert.equal(find('.tag-panel .board-game-link').length, 2, 'Links to board games with tag are shown');
   });
 });
+
+/*
+test('Visit board game from tag details', function (assert) {
+  server.loadFixtures('board-games', 'tags');
+
+  visit('/tags/1');
+
+});
+*/
