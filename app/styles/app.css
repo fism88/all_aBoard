@@ -20,3 +20,7 @@ h1 {
 .tag-autocomplete {
   display: flex;
 }
+
+.ember-power-select-trigger {
+  width: 200px;
+}

@@ -19,5 +19,9 @@ export default Route.extend({
         this.transitionTo('board-games.board-game', boardGame);
       });
     }
+  },
+
+  model () {
+    return this.store.findAll('tag');
   }
 });

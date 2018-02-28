@@ -14,6 +14,9 @@
     </div>
     <div class="tag-autocomplete">
       <strong>Tags: </strong>
+      {{#power-select options=model onchange=(action "selectTag") searchField="name" as |tag|}}
+        {{tag.name}}
+      {{/power-select}}
     </div>
     <button type="submit" class="btn btn-primary btn-sm">Create</button>
   </form>
