@@ -1,6 +1,7 @@
 <div class="col-md-4">
   <div class="list-group">
-    <div class="list-group-item">
+    <div class="list-group-item" id="new-board-game-container">
+      <button class="btn btn-default" id="new-board-game-button" {{action "newBoardGame"}}>+ New Board Game</button>
     </div>
     {{#each model as |boardGame|}}
       {{#link-to "board-games.board-game" boardGame class="list-group-item board-game-link"}}

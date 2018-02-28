@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('board-games', function () {
     this.route('board-game', { path: ':id' });
+    this.route('new');
   });
 
   this.route('tags', function () {

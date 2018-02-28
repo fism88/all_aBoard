@@ -11,3 +11,12 @@ h1 {
   width: 100%;
   font-size: 24px;
 }
+
+#new-board-game-container {
+  display: flex;
+  justify-content: center;
+}
+
+.tag-autocomplete {
+  display: flex;
+}

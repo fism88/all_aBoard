@@ -7,6 +7,11 @@ export default function() {
     return schema.boardGames.find(request.params.id);
   });
 
+  this.post('/board-games', (schema, request) => {
+    let data = JSON.parse(request.requestBody).data.attributes;
+    return schema.boardGames.create(data);
+  });
+
   this.get('/tags', (schema) => {
     return schema.tags.all();
   });
