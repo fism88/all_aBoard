@@ -56,6 +56,7 @@ test('Visit specific board game', function (assert) {
 
 test('Create a board game', function (assert) {
   server.loadFixtures();
+
   let name = 'Dixit';
   let desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description'
   let numPlayers = '3+';
@@ -88,11 +89,39 @@ test('Create a board game', function (assert) {
   });
 });
 
-/*
 test('Edit a board game', function (assert) {
   server.loadFixtures();
+
+  let name = 'Dixit';
+  let desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description'
+  let numPlayers = '3+';
+  let tag = 'Strategy';
+
+  visit('/board-games/1');
+  click('#edit-board-game-link');
+
+  fillIn('#edit-board-game-name', name);
+  fillIn('#edit-board-game-desc', desc);
+  click('.rating-panel .star-rating:nth-child(4)');
+  fillIn('#edit-board-game-num-players', numPlayers);
+  fillIn('.ember-power-select-trigger-multiple-input', tag);
+  click('.ember-power-select-option');
+
+  click('#edit-board-game-button');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/board-games/1');
+    assert.equal(find('.board-game-link:contains("Dixit")').length, 1, 'Board game was edited and shows up in list');
+    assert.equal(find('#board-game-heading:contains("Dixit")').length, 1, 'Board game name was edited');
+    assert.equal(find('#board-game-description:contains("' + desc +'")').length, 1, 'Board game description was edited');
+    assert.equal(find('#board-game-num-players:contains("3+")').length, 1, 'Board game number of players was edited');
+    assert.equal(find('#board-game-rating .glyphicon-star').length, 4, 'Board game rating was edited');
+    assert.equal(find('.tag-button:contains("Strategy")').length, 1, 'Strategy tag set for board game');
+    assert.equal(find('.tab-button').length, 1, 'Other tag(s) were removed from edited board game');
+  });
 });
 
+/*
 test('Delete a board game', function (assert) {
   server.loadFixtures();
 });

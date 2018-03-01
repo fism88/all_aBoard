@@ -1,6 +1,6 @@
 <div class="panel panel-default board-game-panel">
   <div class="panel-body">
-    <h4 class="panel-title  pull-left page-header" id="board-game-heading">{{ model.name }}</h4>
+    <h4 class="panel-title  pull-left page-header" id="board-game-heading">{{ model.name }} <a href="" class="glyphicon glyphicon-pencil" {{action "activateEditing"}}></a></h4>
     <div class="clearfix"></div>
     <br/>
     {{#if isEditing}}
@@ -17,7 +17,7 @@
         <span>
           <strong>Tags: </strong>
           {{#each model.tags as |tag|}}
-            <button class="tag-button btn btn-default btn-xs btn-info" {{action "visitTag" tag}}>{{ tag.name }} <a href="#">x</a></button>
+            <button class="tag-button btn btn-default btn-xs btn-info" {{action "visitTag" tag}}>{{ tag.name }}</button>
           {{/each}}
         </span>
       </div>
