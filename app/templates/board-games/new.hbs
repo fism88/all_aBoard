@@ -1,19 +1,19 @@
 <div>
   <form {{action "createBoardGame" on="submit"}}>
     <div class="new-board-game-field">
-      <strong>Name: </strong>{{input type="text" placeholder="Board Game Name" value=name}}
+      <strong class="new-board-game-label">Name: </strong>{{input type="text" placeholder="Board Game Name" value=name}}
     </div>
     <div class="new-board-game-field">
-      <strong>Description: </strong>{{textarea name="description" value=description}}
+      <strong class="new-board-game-label">Description: </strong>{{textarea name="description" value=description}}
     </div>
     <div class="new-board-game-field">
-      <strong>Rating: </strong>{{star-rating rating=rating on-click=(action "setRating")}}
+      <strong class="new-board-game-label">Rating: </strong>{{star-rating rating=rating on-click=(action "setRating")}}
     </div>
     <div class="new-board-game-field">
-      <strong>Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers}}
+      <strong class="new-board-game-label">Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers}}
     </div>
-    <div class="tag-autocomplete">
-      <strong>Tags: </strong>
+    <div class="new-board-game-field">
+      <strong class="new-board-game-label">Tags: </strong>
       {{#power-select-multiple
         options=model
         selected=tag

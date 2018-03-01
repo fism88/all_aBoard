@@ -35,3 +35,23 @@ h1 {
   color: #e22626;
   line-height: 100px;
 }
+
+.new-board-game-field {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.new-board-game-label {
+  padding-right: 10px;
+}
+
+.empty-list {
+  min-height: 100px;
+  text-align: center;
+}
+
+.empty-list .empty-message {
+  display: inline-block;
+  color: #555;
+  line-height: 100px;
+}
