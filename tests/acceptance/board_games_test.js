@@ -56,21 +56,35 @@ test('Visit specific board game', function (assert) {
 
 test('Create a board game', function (assert) {
   server.loadFixtures();
+  let name = 'Dixit';
+  let desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description'
+  let numPlayers = '3+';
+  let tag1 = 'Strategy';
+  let tag2 = 'Board';
 
   visit('/board-games');
   click('#new-board-game-button');
-  assert.equal(currentURL(), '/board-games/new');
 
-  fillIn('#new-board-game-name', 'Dixit');
-  fillIn('#new-board-game-desc', 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description');
+  fillIn('#new-board-game-name', name);
+  fillIn('#new-board-game-desc', desc);
   click('.rating-panel .star-rating:nth-child(4)');
-  fillIn('#newboard-game-num-players', '3+');
-  fillIn('board-game-tags', 'Strategy, Board');
+  fillIn('#new-board-game-num-players', numPlayers);
+  fillIn('.ember-power-select-trigger-multiple-input', tag1);
+  click('.ember-power-select-option');
+  fillIn('.ember-power-select-trigger-multiple-input', tag2);
+  click('.ember-power-select-option');
+
   click('#create-board-game-button');
 
   andThen(function () {
-    assert.equal(currentURL(), '/board-games');
+    assert.equal(currentURL(), '/board-games/3');
     assert.equal(find('.board-game-link:contains("Dixit")').length, 1, 'New board game was created and shows up in list');
+    assert.equal(find('#board-game-heading:contains("Dixit")').length, 1, 'New board game name was set');
+    assert.equal(find('#board-game-description:contains("' + desc +'")').length, 1, 'New board game description was set');
+    assert.equal(find('#board-game-num-players:contains("3+")').length, 1, 'New board game number of players was set');
+    assert.equal(find('#board-game-rating .glyphicon-star').length, 4, 'New board game rating was set');
+    assert.equal(find('.tag-button:contains("Strategy")').length, 1, 'Strategy tag added to new board game');
+    assert.equal(find('.tag-button:contains("Board")').length, 1, 'Board tag added to new board game');
   });
 });
 

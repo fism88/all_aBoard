@@ -1,16 +1,16 @@
 <div>
   <form {{action "createBoardGame" on="submit"}}>
     <div class="new-board-game-field">
-      <strong class="new-board-game-label">Name: </strong>{{input type="text" placeholder="Board Game Name" value=name}}
+      <strong class="new-board-game-label">Name: </strong>{{input type="text" placeholder="Board Game Name" value=name id="new-board-game-name"}}
     </div>
     <div class="new-board-game-field">
-      <strong class="new-board-game-label">Description: </strong>{{textarea name="description" value=description}}
+      <strong class="new-board-game-label">Description: </strong>{{textarea name="description" value=description placeholder="Board Game overview" id="new-board-game-desc"}}
     </div>
     <div class="new-board-game-field">
       <strong class="new-board-game-label">Rating: </strong>{{star-rating rating=rating on-click=(action "setRating")}}
     </div>
     <div class="new-board-game-field">
-      <strong class="new-board-game-label">Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers}}
+      <strong class="new-board-game-label">Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers id="new-board-game-num-players"}}
     </div>
     <div class="new-board-game-field">
       <strong class="new-board-game-label">Tags: </strong>
@@ -25,6 +25,6 @@
         {{tag.name}}
       {{/power-select-multiple}}
     </div>
-    <button type="submit" class="btn btn-primary btn-sm">Create</button>
+    <button type="submit" class="btn btn-primary btn-sm" id="create-board-game-button">Create</button>
   </form>
 </div>

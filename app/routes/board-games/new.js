@@ -17,7 +17,9 @@ export default Route.extend({
       });
 
       boardGame.save().then(() => {
-        boardGame.set('tags', controller.get('tag'));
+        if (controller.get('tag')) {
+          boardGame.set('tags', controller.get('tag'));
+        }
 
         controller.set('name', '');
         controller.set('description', '');
