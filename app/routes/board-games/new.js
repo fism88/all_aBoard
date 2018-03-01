@@ -8,14 +8,23 @@ export default Route.extend({
       let desc = controller.get('description');
       let rating = controller.get('rating');
       let numPlayers = controller.get('numPlayers');
+
       var boardGame = this.store.createRecord('board-game', {
         name: name,
         description: desc,
         rating: rating,
-        numPlayers: numPlayers
+        numPlayers: numPlayers,
       });
 
       boardGame.save().then(() => {
+        boardGame.set('tags', controller.get('tag'));
+
+        controller.set('name', '');
+        controller.set('description', '');
+        controller.set('rating', 0);
+        controller.set('numPlayers', '');
+        controller.set('tag', null);
+
         this.transitionTo('board-games.board-game', boardGame);
       });
     }

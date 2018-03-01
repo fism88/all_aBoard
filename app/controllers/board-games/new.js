@@ -1,8 +1,11 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  rating: 0,
+
   actions: {
-    selectTag () {
+    setRating (params) {
+      this.set('rating', params.rating);
     }
   }
 });

@@ -7,16 +7,23 @@
       <strong>Description: </strong>{{textarea name="description" value=description}}
     </div>
     <div class="new-board-game-field">
-      <strong>Rating: </strong>{{star-rating rating=0}}
+      <strong>Rating: </strong>{{star-rating rating=rating on-click=(action "setRating")}}
     </div>
     <div class="new-board-game-field">
       <strong>Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers}}
     </div>
     <div class="tag-autocomplete">
       <strong>Tags: </strong>
-      {{#power-select options=model onchange=(action "selectTag") searchField="name" as |tag|}}
+      {{#power-select-multiple
+        options=model
+        selected=tag
+        onchange=(action (mut tag))
+        searchField="name"
+        placeholder="Please add tag(s)"
+        as |tag|
+      }}
         {{tag.name}}
-      {{/power-select}}
+      {{/power-select-multiple}}
     </div>
     <button type="submit" class="btn btn-primary btn-sm">Create</button>
   </form>
