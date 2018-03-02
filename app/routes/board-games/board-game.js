@@ -8,6 +8,9 @@ export default Route.extend({
   },
 
   model (params) {
-    return this.store.findRecord('board-game', params.id, {include: 'tags'});
+    return Ember.RSVP.hash({
+      boardGame: this.store.findRecord('board-game', params.id, {include: 'tags'}),
+      tags: this.store.findAll('tag')
+    });
   }
 });

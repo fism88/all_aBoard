@@ -36,12 +36,12 @@ h1 {
   line-height: 100px;
 }
 
-.new-board-game-field {
+.board-game-field {
   display: flex;
   padding-bottom: 10px;
 }
 
-.new-board-game-label {
+.board-game-field-label {
   padding-right: 10px;
 }
 
@@ -56,6 +56,10 @@ h1 {
   line-height: 100px;
 }
 
-.new-board-game-field textarea {
+.board-game-field textarea {
   width: 250px;
+}
+
+#edit-board-game-link {
+  font-size: 12px;
 }
