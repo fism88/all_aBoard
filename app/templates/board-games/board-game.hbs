@@ -22,8 +22,8 @@
           <strong class="board-game-field-label">Tags: </strong>
           {{#power-select-multiple
             options=tagsList
-            selected=model.tags
-            onchange=(action (mut model.tags))
+            selected=tag
+            onchange=(action (mut tag))
             searchField="name"
             placeholder="Please add tag(s)"
             as |tag|

@@ -21,11 +21,14 @@ export default Route.extend({
         boardGame.set('rating', controller.get('rating'));
       }
 
+      boardGame.set('tags', controller.get('tag'));
+
       boardGame.save();
       controller.set('isEditing', false);
       controller.set('name', undefined);
       controller.set('description', undefined);
       controller.set('numPlayers', undefined);
+      controller.set('tag', null);
       this.transitionTo('board-games.board-game', boardGame);
     },
 
@@ -41,6 +44,7 @@ export default Route.extend({
           controller.set('name', undefined);
           controller.set('description', undefined);
           controller.set('numPlayers', undefined);
+          controller.set('tag', null);
         }
         else {
           transition.abort();

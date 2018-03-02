@@ -9,6 +9,7 @@ export default Controller.extend({
       this.set('isEditing', true);
       this.set('rating', boardGame.get('rating'));
       this.set('tagsList', this.store.findAll('tag'));
+      this.set('tag', boardGame.get('tags'));
     },
 
     updateRating (params) {
