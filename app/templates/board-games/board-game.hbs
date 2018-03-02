@@ -1,29 +1,29 @@
 <div class="panel panel-default board-game-panel">
   <div class="panel-body">
-    <h4 class="panel-title  pull-left page-header" id="board-game-heading">{{ model.boardGame.name }} <a href="" class="glyphicon glyphicon-pencil" id="edit-board-game-link" {{action "activateEditing"}}></a></h4>
+    <h4 class="panel-title  pull-left page-header" id="board-game-heading">{{ model.name }} <a href="" class="glyphicon glyphicon-pencil" id="edit-board-game-link" {{action "activateEditing" model}}></a></h4>
     <div class="clearfix"></div>
     <br/>
     {{#if isEditing}}
-      <form {{action "editBoardGame" model.boardGame on="submit"}}>
+      <form {{action "editBoardGame" model on="submit"}}>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Name: </strong>{{input type="text" placeholder=model.boardGame.name value=name id="new-board-game-name"}}
+          <strong class="board-game-field-label">Name: </strong>{{input type="text" placeholder=model.name value=name id="new-board-game-name"}}
         </div>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Description: </strong>{{textarea name="description" value=description placeholder=model.boardGame.description id="new-board-game-desc"}}
+          <strong class="board-game-field-label">Description: </strong>{{textarea name="description" value=description placeholder=model.description id="new-board-game-desc"}}
         </div>
         <div class="board-game-field">
           <strong class="board-game-field-label">Rating: </strong>
-          {{star-rating rating=model.boardGame.rating item=model.boardGame on-click=(action "updateRating")}}
+          {{star-rating rating=rating on-click=(action "updateRating")}}
         </div>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Number of Players: </strong>{{input type="text" placeholder="2+" value=numPlayers id="new-board-game-num-players"}}
+          <strong class="board-game-field-label">Number of Players: </strong>{{input type="text" placeholder=model.numPlayers value=numPlayers id="new-board-game-num-players"}}
         </div>
         <div class="board-game-field">
           <strong class="board-game-field-label">Tags: </strong>
           {{#power-select-multiple
-            options=model.tags
-            selected=tag
-            onchange=(action (mut tag))
+            options=tagsList
+            selected=model.tags
+            onchange=(action (mut model.tags))
             searchField="name"
             placeholder="Please add tag(s)"
             as |tag|
@@ -34,15 +34,15 @@
         <button type="submit" class="btn btn-primary btn-sm" id="edit-board-game-button">Edit</button>
       </form>
     {{else}}
-      <div id="board-game-description"><strong>Description:</strong> {{model.boardGame.description}}</div>
+      <div id="board-game-description"><strong>Description:</strong> {{model.description}}</div>
       <div id="board-game-rating">
-        <strong>Rating:</strong> {{ star-rating rating=model.boardGame.rating item=model.boardGame }}
+        <strong>Rating:</strong> {{ star-rating rating=model.rating item=model }}
       </div>
-      <div id="board-game-num-players"><strong>Number of Players:</strong> {{ model.boardGame.numPlayers }}</div>
+      <div id="board-game-num-players"><strong>Number of Players:</strong> {{ model.numPlayers }}</div>
       <div id="board-game-tags">
         <span>
           <strong>Tags: </strong>
-          {{#each model.boardGame.tags as |tag|}}
+          {{#each model.tags as |tag|}}
             <button class="tag-button btn btn-default btn-xs btn-info" {{action "visitTag" tag}}>{{ tag.name }}</button>
           {{/each}}
         </span>

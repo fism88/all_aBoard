@@ -3,6 +3,7 @@ import Route from '@ember/routing/route';
 export default Route.extend({
   actions: {
     createBoardGame () {
+      // TODO cleanup/refactor
       let controller = this.get('controller');
       let name = controller.get('name');
       let desc = controller.get('description');
@@ -16,11 +17,11 @@ export default Route.extend({
         numPlayers: numPlayers,
       });
 
-      boardGame.save().then(() => {
-        if (controller.get('tag')) {
-          boardGame.set('tags', controller.get('tag'));
-        }
+      if (controller.get('tag')) {
+        boardGame.set('tags', controller.get('tag'));
+      }
 
+      boardGame.save().then(() => {
         controller.set('name', '');
         controller.set('description', '');
         controller.set('rating', 0);

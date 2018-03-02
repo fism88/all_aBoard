@@ -12,6 +12,13 @@ export default function() {
     return schema.boardGames.create(data);
   });
 
+  this.patch('/board-games/:id', (schema, request) => {
+    let data = JSON.parse(request.requestBody).data.attributes,
+        boardGame = schema.boardGames.find(request.params.id);
+
+    return boardGame.update(data);
+  });
+
   this.get('/tags', (schema) => {
     return schema.tags.all();
   });
