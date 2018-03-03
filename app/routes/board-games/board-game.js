@@ -23,7 +23,7 @@ export default Route.extend({
 
       let tags = controller.get('tag');
       if (tags.length >= 0) {
-        boardGame.set('tags', controller.get('tag'));
+        boardGame.set('tags', tags);
       }
 
       boardGame.save();

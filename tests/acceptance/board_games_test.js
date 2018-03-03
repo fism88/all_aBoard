@@ -57,11 +57,11 @@ test('Visit specific board game', function (assert) {
 test('Create a board game', function (assert) {
   server.loadFixtures();
 
-  let name = 'Dixit';
-  let desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description'
-  let numPlayers = '3+';
-  let tag1 = 'Strategy';
-  let tag2 = 'Board';
+  let name = 'Dixit',
+      desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description',
+      numPlayers = '3+',
+      tag1 = 'Strategy',
+      tag2 = 'Board';
 
   visit('/board-games');
   click('#new-board-game-button');
@@ -92,10 +92,10 @@ test('Create a board game', function (assert) {
 test('Edit a board game', function (assert) {
   server.loadFixtures();
 
-  let name = 'Dixit';
-  let desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description'
-  let numPlayers = '3+';
-  let tag = 'Strategy';
+  let name = 'Dixit',
+      desc = 'One person describes a picture card they have, while others then put down a picture card that others would think matches the description',
+      numPlayers = '3+',
+      tag = 'Strategy';
 
   visit('/board-games/1');
   click('#edit-board-game-link');
