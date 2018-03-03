@@ -104,6 +104,8 @@ test('Edit a board game', function (assert) {
   fillIn('#edit-board-game-desc', desc);
   click('.rating-panel .star-rating:nth-child(4)');
   fillIn('#edit-board-game-num-players', numPlayers);
+  click('.ember-power-select-multiple-remove-btn');
+  click('.ember-power-select-multiple-remove-btn');
   fillIn('.ember-power-select-trigger-multiple-input', tag);
   click('.ember-power-select-option');
 
@@ -117,7 +119,7 @@ test('Edit a board game', function (assert) {
     assert.equal(find('#board-game-num-players:contains("3+")').length, 1, 'Board game number of players was edited');
     assert.equal(find('#board-game-rating .glyphicon-star').length, 4, 'Board game rating was edited');
     assert.equal(find('.tag-button:contains("Strategy")').length, 1, 'Strategy tag set for board game');
-    assert.equal(find('.tab-button').length, 1, 'Other tag(s) were removed from edited board game');
+    assert.equal(find('.tag-button').length, 1, 'Other tag(s) were removed from edited board game');
   });
 });
 

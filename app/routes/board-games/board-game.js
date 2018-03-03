@@ -21,7 +21,10 @@ export default Route.extend({
         boardGame.set('rating', controller.get('rating'));
       }
 
-      boardGame.set('tags', controller.get('tag'));
+      let tags = controller.get('tag');
+      if (tags.length >= 0) {
+        boardGame.set('tags', controller.get('tag'));
+      }
 
       boardGame.save();
       controller.set('isEditing', false);

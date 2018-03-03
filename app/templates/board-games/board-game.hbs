@@ -6,17 +6,17 @@
     {{#if isEditing}}
       <form {{action "editBoardGame" model on="submit"}}>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Name: </strong>{{input type="text" placeholder=model.name value=name id="new-board-game-name"}}
+          <strong class="board-game-field-label">Name: </strong>{{input type="text" placeholder=model.name value=name id="edit-board-game-name"}}
         </div>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Description: </strong>{{textarea name="description" value=description placeholder=model.description id="new-board-game-desc"}}
+          <strong class="board-game-field-label">Description: </strong>{{textarea name="description" value=description placeholder=model.description id="edit-board-game-desc"}}
         </div>
         <div class="board-game-field">
           <strong class="board-game-field-label">Rating: </strong>
           {{star-rating rating=rating on-click=(action "updateRating")}}
         </div>
         <div class="board-game-field">
-          <strong class="board-game-field-label">Number of Players: </strong>{{input type="text" placeholder=model.numPlayers value=numPlayers id="new-board-game-num-players"}}
+          <strong class="board-game-field-label">Number of Players: </strong>{{input type="text" placeholder=model.numPlayers value=numPlayers id="edit-board-game-num-players"}}
         </div>
         <div class="board-game-field">
           <strong class="board-game-field-label">Tags: </strong>
