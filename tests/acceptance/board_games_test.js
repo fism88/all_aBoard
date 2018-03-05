@@ -123,8 +123,15 @@ test('Edit a board game', function (assert) {
   });
 });
 
-/*
 test('Delete a board game', function (assert) {
   server.loadFixtures();
+
+  visit('/board-games/2');
+  click('#delete-board-game-link');
+  click('#confirm-delete-button');
+
+  andThen(function () {
+    assert.equal(currentURL(), '/board-games');
+    assert.equal(find('.board-game-link:contains("Ticket to Ride")').length, 0, 'Board game was deleted');
+  });
 });
-*/
