@@ -2,6 +2,11 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   actions: {
+    activateDelete (boardGame) {
+      this.get('controller').set('isDeleting', true);
+      this.transitionTo('board-games.board-game.delete', boardGame);
+    },
+
     editBoardGame (boardGame) {
       let controller = this.get('controller');
 
@@ -27,11 +32,13 @@ export default Route.extend({
       }
 
       boardGame.save();
+
       controller.set('isEditing', false);
       controller.set('name', undefined);
       controller.set('description', undefined);
       controller.set('numPlayers', undefined);
       controller.set('tag', null);
+
       this.transitionTo('board-games.board-game', boardGame);
     },
 

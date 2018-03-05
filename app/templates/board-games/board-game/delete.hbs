@@ -1,0 +1,7 @@
+<div class="confirm-delete-pane">
+  <div class="delete-confirmation">
+    Are you sure you want to delete {{ model.name }}?
+    <button type="submit" class="btn btn-primary btn-sm confirm-delete-button" {{action "deleteBoardGame" model}}>Delete</button>
+    {{#link-to "board-games.board-game" model}}Cancel{{/link-to}}
+  </div>
+</div>

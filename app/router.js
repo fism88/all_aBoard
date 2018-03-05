@@ -8,7 +8,9 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('board-games', function () {
-    this.route('board-game', { path: ':id' });
+    this.route('board-game', { path: ':id' }, function () {
+      this.route('delete');
+    });
     this.route('new');
   });
 

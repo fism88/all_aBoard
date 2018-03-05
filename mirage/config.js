@@ -19,6 +19,11 @@ export default function() {
     return boardGame.update(data);
   });
 
+  this.del('/board-games/:id', (schema, request) => {
+    let boardGame = schema.boardGames.find(request.params.id);
+    return boardGame.destroy();
+  });
+
   this.get('/tags', (schema) => {
     return schema.tags.all();
   });

@@ -3,12 +3,11 @@ import Route from '@ember/routing/route';
 export default Route.extend({
   actions: {
     createBoardGame () {
-      // TODO cleanup/refactor
-      let controller = this.get('controller');
-      let name = controller.get('name');
-      let desc = controller.get('description');
-      let rating = controller.get('rating');
-      let numPlayers = controller.get('numPlayers');
+      let controller = this.get('controller'),
+          name = controller.get('name'),
+          desc = controller.get('description'),
+          rating = controller.get('rating'),
+          numPlayers = controller.get('numPlayers');
 
       var boardGame = this.store.createRecord('board-game', {
         name: name,

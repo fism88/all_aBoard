@@ -128,7 +128,7 @@ test('Delete a board game', function (assert) {
 
   visit('/board-games/2');
   click('#delete-board-game-link');
-  click('#confirm-delete-button');
+  click('.confirm-delete-button');
 
   andThen(function () {
     assert.equal(currentURL(), '/board-games');

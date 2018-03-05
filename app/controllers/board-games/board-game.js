@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  isDeleting: false,
   isEditing: false,
   rating: 0,
 
